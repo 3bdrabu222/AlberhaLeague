@@ -1,0 +1,652 @@
+{
+  "week1": [
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 76,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 76,
+      "property": "Bench Boost",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 68,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 58,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 57,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 48,
+      "property": "None",
+      "negatives": 0
+    }
+  ],
+  "week2": [
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 67,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 63,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 53,
+      "property": "None",
+      "negatives": -16
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 52,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 49,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 46,
+      "property": "None",
+      "negatives": 0
+    }
+  ],
+  "week3": [
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 57,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 52,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 48,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 45,
+      "property": "None",
+      "negatives": -12
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 43,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 36,
+      "property": "None",
+      "negatives": -4
+    }
+  ],
+  "week4": [
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 76,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 68,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 63,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 62,
+      "property": "Wildcard",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 61,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 58,
+      "property": "None",
+      "negatives": -4
+    }
+  ],
+  "week5": [
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 61,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 49,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 44,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 38,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 32,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 30,
+      "property": "None",
+      "negatives": -4
+    }
+  ],
+  "week6": [
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 75,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 63,
+      "property": "Bench Boost",
+      "negatives": -4
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 59,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 58,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 57,
+      "property": "None",
+      "negatives": -8
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 22,
+      "property": "None",
+      "negatives": 0
+    }
+  ],
+  "week7": [
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 71,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 70,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 68,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 66,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 59,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 56,
+      "property": "Wildcard",
+      "negatives": 0
+    }
+  ],
+  "week8": [
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 73,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 72,
+      "property": "Wildcard",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 67,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 63,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 62,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 49,
+      "property": "Bench Boost",
+      "negatives": 0
+    }
+  ],
+  "week9": [
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 78,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 64,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 57,
+      "property": "Wildcard",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 48,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 46,
+      "property": "None",
+      "negatives": -8
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 38,
+      "property": "Wildcard",
+      "negatives": 0
+    }
+  ],
+  "week10": [
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 89,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 74,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 72,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 68,
+      "property": "Wildcard",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 64,
+      "property": "Bench Boost",
+      "negatives": -4
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 57,
+      "property": "None",
+      "negatives": 0
+    }
+  ],
+  "week11": [
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 54,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 43,
+      "property": "Free Hit",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 42,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 36,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 30,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 26,
+      "property": "None",
+      "negatives": 0
+    }
+  ],
+  "week12": [
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 65,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 59,
+      "property": "Bench Boost",
+      "negatives": -8
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 55,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 52,
+      "property": "Free Hit",
+      "negatives": 0
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 46,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 45,
+      "property": "None",
+      "negatives": -4
+    }
+  ],
+  "week13": [
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 72,
+      "property": "Free Hit",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 67,
+      "property": "Free Hit",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 48,
+      "property": "None",
+      "negatives": -8
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 47,
+      "property": "Free Hit",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 30,
+      "property": "Triple Captain",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 26,
+      "property": "Triple Captain",
+      "negatives": -8
+    }
+  ]
+}

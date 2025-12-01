@@ -1,0 +1,42 @@
+{
+  "name": "Fantasy Alberha League",
+  "short_name": "FPL Alberha",
+  "description": "Fantasy Premier League - Alberha League Edition",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F1419",
+  "theme_color": "#9333EA",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "entertainment"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "League Table",
+      "short_name": "Rankings",
+      "description": "View league standings",
+      "url": "/rankings",
+      "icons": []
+    },
+    {
+      "name": "Gameweek History",
+      "short_name": "Weekly",
+      "description": "View gameweek results",
+      "url": "/weekly",
+      "icons": []
+    }
+  ]
+}
