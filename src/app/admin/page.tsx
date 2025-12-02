@@ -4,6 +4,41 @@ import { useState } from 'react';
 import { getPlayers, getTotalWeeks, getWeekData } from '@/utils/dataUtils';
 
 export default function AdminPage() {
+  // Check if running in production
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-dark-bg">
+        <div className="card max-w-2xl text-center">
+          <div className="text-6xl mb-4">⚠️</div>
+          <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+            Admin Panel Unavailable in Production
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+            Due to Vercel's read-only file system, the admin panel only works in local development mode.
+          </p>
+          <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
+            <h2 className="font-bold text-lg mb-3 text-blue-900 dark:text-blue-100">
+              📝 How to Add/Update Gameweeks:
+            </h2>
+            <ol className="text-left space-y-2 text-gray-700 dark:text-gray-300">
+              <li>1. Run the project locally: <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">npm run dev</code></li>
+              <li>2. Visit: <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">http://localhost:3000/admin</code></li>
+              <li>3. Add/update your gameweek data</li>
+              <li>4. Commit and push changes: <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">git push</code></li>
+              <li>5. Vercel will automatically redeploy with new data</li>
+            </ol>
+          </div>
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+            <p className="text-sm text-yellow-800 dark:text-yellow-200">
+              <strong>💡 Future Solution:</strong> Migrate to Vercel Postgres database for live admin updates.
+              <br />See <code>VERCEL_DATABASE_SETUP.md</code> for instructions.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const players = getPlayers();
   const totalWeeks = getTotalWeeks();
   const [activeTab, setActiveTab] = useState<'add' | 'update' | 'delete'>('add');
