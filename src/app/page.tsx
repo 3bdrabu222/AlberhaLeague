@@ -13,19 +13,25 @@ export default function Home() {
   const currentGameweek = totalWeeks;
   const latestWeekData = getWeekData(currentGameweek);
   
-  // Calculate chips used
-  const chipsUsed: { [key: string]: number } = {
-    'Wildcard': 0,
-    'Bench Boost': 0,
-    'Free Hit': 0,
-    'Triple Captain': 0
+  // Calculate chips used by season halves
+  const SEASON_SPLIT = 19;
+  const chipsUsed: { [key: string]: { firstHalf: number; secondHalf: number; total: number } } = {
+    'Wildcard': { firstHalf: 0, secondHalf: 0, total: 0 },
+    'Bench Boost': { firstHalf: 0, secondHalf: 0, total: 0 },
+    'Free Hit': { firstHalf: 0, secondHalf: 0, total: 0 },
+    'Triple Captain': { firstHalf: 0, secondHalf: 0, total: 0 }
   };
   
   for (let i = 1; i <= totalWeeks; i++) {
     const weekData = getWeekData(i);
     weekData.forEach(entry => {
       if (entry.property && entry.property !== 'None') {
-        chipsUsed[entry.property] = (chipsUsed[entry.property] || 0) + 1;
+        if (i <= SEASON_SPLIT) {
+          chipsUsed[entry.property].firstHalf += 1;
+        } else {
+          chipsUsed[entry.property].secondHalf += 1;
+        }
+        chipsUsed[entry.property].total += 1;
       }
     });
   }
@@ -88,33 +94,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chips Usage Stats */}
+      {/* Chips Usage Stats - By Season Halves */}
       <section className="card">
-        <h2 className="text-2xl font-bold mb-4">{t('home.chipsUsage')}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-2 border-blue-200 dark:border-blue-800">
-            <div className="text-4xl mb-2">🃏</div>
-            <div className="text-2xl font-bold text-purple-600">{chipsUsed['Wildcard']}</div>
-            <div className="text-sm font-semibold">{t('home.wildcard')}</div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">{t('home.timesUsed')}</div>
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{t('home.chipsUsage')} 🎮</h2>
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-4 sm:mb-6 leading-relaxed">
+          {t('home.chipSeasonRule')}
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div className="p-3 sm:p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-2 border-blue-200 dark:border-blue-800">
+            <div className="text-3xl sm:text-4xl mb-1 sm:mb-2">🃏</div>
+            <div className="text-xl sm:text-2xl font-bold text-purple-600">{chipsUsed['Wildcard'].total}</div>
+            <div className="text-xs sm:text-sm font-semibold truncate">{t('home.wildcard')}</div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 sm:mt-2">
+              {t('home.firstHalf')}: {chipsUsed['Wildcard'].firstHalf}
+            </div>
+            <div className="text-xs text-gray-500 dark:text-gray-400">
+              {t('home.secondHalf')}: {chipsUsed['Wildcard'].secondHalf}
+            </div>
           </div>
-          <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-2 border-green-200 dark:border-green-800">
-            <div className="text-4xl mb-2">💪</div>
-            <div className="text-2xl font-bold text-purple-600">{chipsUsed['Bench Boost']}</div>
-            <div className="text-sm font-semibold">{t('home.benchBoost')}</div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">{t('home.timesUsed')}</div>
+          <div className="p-3 sm:p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-2 border-green-200 dark:border-green-800">
+            <div className="text-3xl sm:text-4xl mb-1 sm:mb-2">💪</div>
+            <div className="text-xl sm:text-2xl font-bold text-purple-600">{chipsUsed['Bench Boost'].total}</div>
+            <div className="text-xs sm:text-sm font-semibold truncate">{t('home.benchBoost')}</div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 sm:mt-2">
+              {t('home.firstHalf')}: {chipsUsed['Bench Boost'].firstHalf}
+            </div>
+            <div className="text-xs text-gray-500 dark:text-gray-400">
+              {t('home.secondHalf')}: {chipsUsed['Bench Boost'].secondHalf}
+            </div>
           </div>
-          <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-2 border-orange-200 dark:border-orange-800">
-            <div className="text-4xl mb-2">🎯</div>
-            <div className="text-2xl font-bold text-purple-600">{chipsUsed['Free Hit']}</div>
-            <div className="text-sm font-semibold">{t('home.freeHit')}</div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">{t('home.timesUsed')}</div>
+          <div className="p-3 sm:p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-2 border-orange-200 dark:border-orange-800">
+            <div className="text-3xl sm:text-4xl mb-1 sm:mb-2">🎯</div>
+            <div className="text-xl sm:text-2xl font-bold text-purple-600">{chipsUsed['Free Hit'].total}</div>
+            <div className="text-xs sm:text-sm font-semibold truncate">{t('home.freeHit')}</div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 sm:mt-2">
+              {t('home.firstHalf')}: {chipsUsed['Free Hit'].firstHalf}
+            </div>
+            <div className="text-xs text-gray-500 dark:text-gray-400">
+              {t('home.secondHalf')}: {chipsUsed['Free Hit'].secondHalf}
+            </div>
           </div>
-          <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-2 border-yellow-200 dark:border-yellow-800">
-            <div className="text-4xl mb-2">👑</div>
-            <div className="text-2xl font-bold text-purple-600">{chipsUsed['Triple Captain']}</div>
-            <div className="text-sm font-semibold">{t('home.tripleCaptain')}</div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">{t('home.timesUsed')}</div>
+          <div className="p-3 sm:p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-2 border-yellow-200 dark:border-yellow-800">
+            <div className="text-3xl sm:text-4xl mb-1 sm:mb-2">👑</div>
+            <div className="text-xl sm:text-2xl font-bold text-purple-600">{chipsUsed['Triple Captain'].total}</div>
+            <div className="text-xs sm:text-sm font-semibold truncate">{t('home.tripleCaptain')}</div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 sm:mt-2">
+              {t('home.firstHalf')}: {chipsUsed['Triple Captain'].firstHalf}
+            </div>
+            <div className="text-xs text-gray-500 dark:text-gray-400">
+              {t('home.secondHalf')}: {chipsUsed['Triple Captain'].secondHalf}
+            </div>
           </div>
         </div>
       </section>

@@ -2,8 +2,9 @@
 
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { getPlayerStats, getWeekData, getTotalWeeks } from '@/utils/dataUtils';
+import { getPlayerStats, getWeekData, getTotalWeeks, getPlayers } from '@/utils/dataUtils';
 import PlayerChart from '@/components/PlayerChart';
+import ChipUsageTracker from '@/components/ChipUsageTracker';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function PlayerProfile() {
@@ -12,6 +13,11 @@ export default function PlayerProfile() {
   const playerId = parseInt(params.id as string);
   const stats = getPlayerStats(playerId);
   const totalWeeks = getTotalWeeks();
+  
+  // Get leader's points for gap calculation
+  const allPlayers = getPlayers();
+  const leader = allPlayers[0]; // First player is the leader (sorted by totalPoints)
+  const pointsGapFromLeader = leader ? leader.totalPoints - (stats?.player.totalPoints || 0) : 0;
 
   if (!stats) {
     return (
@@ -58,48 +64,37 @@ export default function PlayerProfile() {
         </div>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="card text-center">
-          <div className="text-3xl font-bold text-purple-600">{averageScore.toFixed(1)}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">{t('player.avgPoints')}</div>
+      {/* Stats Grid - Responsive for Mobile */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="card text-center p-3 sm:p-4">
+          <div className="text-2xl sm:text-3xl font-bold text-purple-600">{averageScore.toFixed(1)}</div>
+          <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">{t('player.avgPoints')}</div>
         </div>
-        <div className="card text-center">
-          <div className="text-3xl font-bold text-green-500">{highestWeek}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">{t('player.bestWeek')}</div>
+        <div className="card text-center p-3 sm:p-4">
+          <div className="text-2xl sm:text-3xl font-bold text-green-500">{highestWeek}</div>
+          <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">{t('player.bestWeek')}</div>
         </div>
-        <div className="card text-center">
-          <div className="text-3xl font-bold text-red-500">{lowestWeek}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">{t('player.worstWeek')}</div>
+        <div className="card text-center p-3 sm:p-4">
+          <div className="text-2xl sm:text-3xl font-bold text-red-500">{lowestWeek}</div>
+          <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">{t('player.worstWeek')}</div>
         </div>
-      </div>
-
-      {/* Properties Used Summary */}
-      <div className="card bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
-        <h3 className="text-lg font-bold mb-4">{t('player.chipsUsed')}</h3>
-        <div className="flex flex-wrap gap-3">
-          {weeklyDetails.filter(w => w.property && w.property !== 'None').length > 0 ? (
-            weeklyDetails
-              .filter(w => w.property && w.property !== 'None')
-              .map((detail) => (
-                <div key={detail.week} className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-dark-card rounded-lg border-2 border-blue-200 dark:border-blue-800">
-                  <span className="text-2xl">
-                    {detail.property === 'Wildcard' && '🃏'}
-                    {detail.property === 'Bench Boost' && '💪'}
-                    {detail.property === 'Free Hit' && '🎯'}
-                    {detail.property === 'Triple Captain' && '👑'}
-                  </span>
-                  <div>
-                    <div className="font-semibold text-sm">{translateChipName(detail.property)}</div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">{t('player.week')} {detail.week}</div>
-                  </div>
-                </div>
-              ))
+        <div className="card text-center p-3 sm:p-4">
+          {pointsGapFromLeader === 0 ? (
+            <>
+              <div className="text-2xl sm:text-3xl font-bold text-yellow-500">👑</div>
+              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">{t('player.leader')}</div>
+            </>
           ) : (
-            <p className="text-gray-500 dark:text-gray-400">{t('player.noChips')}</p>
+            <>
+              <div className="text-2xl sm:text-3xl font-bold text-orange-500">-{pointsGapFromLeader}</div>
+              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">{t('player.gapFromLeader')}</div>
+            </>
           )}
         </div>
       </div>
+
+      {/* Chip Usage Tracker - New Feature */}
+      <ChipUsageTracker weeklyDetails={weeklyDetails} />
 
       {/* Weekly Performance Chart */}
       <div className="card">
