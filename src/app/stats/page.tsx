@@ -3,7 +3,11 @@
 import { getLeagueStats, getPlayers, getTotalWeeks } from '@/utils/dataUtils';
 import LeagueChart from '@/components/LeagueChart';
 import WeeklyTrendsChart from '@/components/WeeklyTrendsChart';
+import PerformanceHeatMap from '@/components/PerformanceHeatMap';
+import TrendAnalysis from '@/components/TrendAnalysis';
+import PerformancePrediction from '@/components/PerformancePrediction';
 import { useLanguage } from '@/contexts/LanguageContext';
+import PlayerAvatar from '@/components/PlayerAvatar';
 
 export default function Stats() {
   const { t, translatePlayerName } = useLanguage();
@@ -12,16 +16,16 @@ export default function Stats() {
   const totalWeeks = getTotalWeeks();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h1 className="text-4xl font-bold mb-2">{t('stats.title')}</h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">{t('stats.title')}</h1>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
           {t('stats.subtitle')}
         </p>
       </div>
 
       {/* Key Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <div className="card bg-gradient-to-br from-yellow-400 to-yellow-600 text-white">
           <div className="text-sm opacity-90 mb-2">{t('stats.highestWeek')}</div>
           <div className="text-3xl font-bold mb-1">{leagueStats.highestScoringWeek.points}</div>
@@ -60,78 +64,80 @@ export default function Stats() {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Top Players Chart */}
         <div className="card">
-          <h2 className="text-2xl font-bold mb-6">{t('stats.top10')}</h2>
-          <LeagueChart players={players.slice(0, 10)} />
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('stats.top10')}</h2>
+          <div className="w-full overflow-x-auto">
+            <LeagueChart players={players.slice(0, 10)} />
+          </div>
         </div>
 
         {/* Weekly Trends */}
         <div className="card">
-          <h2 className="text-2xl font-bold mb-6">{t('stats.weeklyTrends')}</h2>
-          <WeeklyTrendsChart players={players.slice(0, 5)} />
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('stats.weeklyTrends')}</h2>
+          <div className="w-full overflow-x-auto">
+            <WeeklyTrendsChart players={players.slice(0, 5)} />
+          </div>
         </div>
       </div>
 
       {/* Detailed Stats Table */}
-      <div className="card">
-        <h2 className="text-2xl font-bold mb-6">{t('stats.detailedStats')}</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="table-header">
-                <th className="px-4 py-4 text-center">{t('rankings.rank')}</th>
-                <th className="px-6 py-4 text-end">{t('stats.player')}</th>
-                <th className="px-6 py-4 text-center">{t('stats.total')}</th>
-                <th className="px-6 py-4 text-center">{t('stats.avgWeek')}</th>
-                <th className="px-6 py-4 text-center">{t('stats.performance')}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {players.map((player, index) => {
-                const avgPerWeek = (player.totalPoints / totalWeeks).toFixed(1);
-                const performance = player.totalPoints >= 700 ? t('stats.excellent') :
-                                  player.totalPoints >= 650 ? t('stats.good') :
-                                  player.totalPoints >= 600 ? t('stats.averagePerf') : t('stats.belowAvg');
-                const performanceColor = player.totalPoints >= 700 ? 'text-green-500' :
-                                       player.totalPoints >= 650 ? 'text-blue-500' :
-                                       player.totalPoints >= 600 ? 'text-yellow-500' : 'text-red-500';
-                
-                return (
-                  <tr key={player.id} className="table-row">
-                    <td className="px-4 py-4 text-center">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold mx-auto ${
-                        index === 0 ? 'bg-yellow-400 text-yellow-900' :
-                        index === 1 ? 'bg-gray-300 text-gray-700' :
-                        index === 2 ? 'bg-orange-400 text-orange-900' :
-                        'bg-gray-200 dark:bg-dark-hover text-gray-700 dark:text-gray-300'
-                      }`}>
-                        {index + 1}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-end">
-                      <div className="font-semibold text-lg">{translatePlayerName(player.name)}</div>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="text-xl font-bold text-purple-600">{player.totalPoints}</span>
-                    </td>
-                    <td className="px-6 py-4 text-center font-semibold">{avgPerWeek}</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className={`font-semibold ${performanceColor}`}>
-                        {performance}
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+      <div className="card overflow-hidden p-0 sm:p-4 md:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 pt-4 sm:pt-0">{t('stats.detailedStats')}</h2>
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <div className="inline-block min-w-full align-middle">
+            <table className="w-full">
+              <thead>
+                <tr className="table-header">
+                  <th className="px-2 sm:px-4 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('rankings.rank')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-end text-xs sm:text-sm">{t('stats.player')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('stats.total')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm hidden sm:table-cell">{t('stats.avgWeek')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('stats.performance')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {players.map((player, index) => {
+                  const avgPerWeek = (player.totalPoints / totalWeeks).toFixed(1);
+                  const performance = player.totalPoints >= 700 ? t('stats.excellent') :
+                                    player.totalPoints >= 650 ? t('stats.good') :
+                                    player.totalPoints >= 600 ? t('stats.averagePerf') : t('stats.belowAvg');
+                  const performanceColor = player.totalPoints >= 700 ? 'text-green-500' :
+                                         player.totalPoints >= 650 ? 'text-blue-500' :
+                                         player.totalPoints >= 600 ? 'text-yellow-500' : 'text-red-500';
+                  
+                  return (
+                    <tr key={player.id} className="table-row">
+                      <td className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                        <PlayerAvatar player={player} size="md" showRank rank={index + 1} className="mx-auto" />
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-end">
+                        <div className="font-semibold text-sm sm:text-base md:text-lg truncate max-w-[120px] sm:max-w-none">{translatePlayerName(player.name)}</div>
+                        <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 sm:hidden mt-1">
+                          {t('stats.avgWeek')}: {avgPerWeek}
+                        </div>
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center">
+                        <span className="text-lg sm:text-xl font-bold text-purple-600">{player.totalPoints}</span>
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center font-semibold hidden sm:table-cell">{avgPerWeek}</td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center">
+                        <span className={`font-semibold text-xs sm:text-sm ${performanceColor}`}>
+                          {performance}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       {/* Additional Insights */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
         <div className="card bg-gray-50 dark:bg-dark-hover">
           <h3 className="font-semibold mb-2">{t('stats.totalPlayersLabel')}</h3>
           <div className="text-3xl font-bold text-purple-600">{players.length}</div>
@@ -149,6 +155,15 @@ export default function Stats() {
           </div>
         </div>
       </div>
+
+      {/* Performance Heat Map */}
+      <PerformanceHeatMap maxPlayers={players.length} />
+
+      {/* Trend Analysis */}
+      <TrendAnalysis maxPlayers={players.length} />
+
+      {/* Performance Prediction */}
+      <PerformancePrediction maxPlayers={players.length} />
     </div>
   );
 }

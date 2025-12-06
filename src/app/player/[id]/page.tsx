@@ -6,6 +6,7 @@ import { getPlayerStats, getWeekData, getTotalWeeks, getPlayers } from '@/utils/
 import PlayerChart from '@/components/PlayerChart';
 import ChipUsageTracker from '@/components/ChipUsageTracker';
 import { useLanguage } from '@/contexts/LanguageContext';
+import PlayerAvatar from '@/components/PlayerAvatar';
 
 export default function PlayerProfile() {
   const { t, translatePlayerName, translateTeamName, translateChipName } = useLanguage();
@@ -48,18 +49,21 @@ export default function PlayerProfile() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Header */}
       <div className="card bg-gradient-to-r from-purple-600 to-pink-600 text-white">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div>
-            <h1 className="text-4xl font-bold mb-2">{translatePlayerName(player.name)}</h1>
-            <p className="text-lg opacity-90">{player.teamName ? translateTeamName(player.teamName) : ''}</p>
-            <p className="text-sm opacity-75">{t('player.profile')}</p>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <PlayerAvatar player={player} size="xl" />
+            <div className="min-w-0 flex-1">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 truncate">{translatePlayerName(player.name)}</h1>
+              <p className="text-sm sm:text-base md:text-lg opacity-90 truncate">{player.teamName ? translateTeamName(player.teamName) : ''}</p>
+              <p className="text-xs sm:text-sm opacity-75">{t('player.profile')}</p>
+            </div>
           </div>
-          <div className="text-right">
-            <div className="text-5xl font-bold">{player.totalPoints}</div>
-            <div className="text-sm opacity-80">{t('player.totalPoints')}</div>
+          <div className="text-right shrink-0">
+            <div className="text-3xl sm:text-4xl md:text-5xl font-bold">{player.totalPoints}</div>
+            <div className="text-xs sm:text-sm opacity-80">{t('player.totalPoints')}</div>
           </div>
         </div>
       </div>
@@ -98,74 +102,88 @@ export default function PlayerProfile() {
 
       {/* Weekly Performance Chart */}
       <div className="card">
-        <h2 className="text-2xl font-bold mb-6">{t('player.weeklyPerf')}</h2>
-        <PlayerChart weeklyScores={weeklyScores} playerName={translatePlayerName(player.name)} />
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('player.weeklyPerf')}</h2>
+        <div className="w-full overflow-x-auto">
+          <PlayerChart weeklyScores={weeklyScores} playerName={translatePlayerName(player.name)} />
+        </div>
       </div>
 
       {/* Gameweek History Table */}
-      <div className="card">
-        <h2 className="text-2xl font-bold mb-6">{t('player.gwHistory')}</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="table-header">
-                <th className="px-6 py-4 text-left">{t('player.gameweek')}</th>
-                <th className="px-6 py-4 text-center">{t('weekly.chipUsed')}</th>
-                <th className="px-6 py-4 text-right">{t('weekly.gwPoints')}</th>
-                <th className="px-6 py-4 text-right">{t('weekly.transferCost')}</th>
-                <th className="px-6 py-4 text-right">{t('player.vsAvg')}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {weeklyDetails.map((detail) => {
-                const diff = detail.points - averageScore;
-                return (
-                  <tr key={detail.week} className="table-row">
-                    <td className="px-6 py-4 font-semibold">{t('weekly.gw')} {detail.week}</td>
-                    <td className="px-6 py-4 text-center">
-                      {detail.property && detail.property !== 'None' ? (
-                        <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-lg font-semibold">
-                          {detail.property === 'Wildcard' && '🃏'}
-                          {detail.property === 'Bench Boost' && '💪'}
-                          {detail.property === 'Free Hit' && '🎯'}
-                          {detail.property === 'Triple Captain' && '👑'}
-                          {' '}{translateChipName(detail.property)}
+      <div className="card overflow-hidden p-0 sm:p-4 md:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 pt-4 sm:pt-0">{t('player.gwHistory')}</h2>
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <div className="inline-block min-w-full align-middle">
+            <table className="w-full">
+              <thead>
+                <tr className="table-header">
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm">{t('player.gameweek')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm hidden md:table-cell">{t('weekly.chipUsed')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-right text-xs sm:text-sm">{t('weekly.gwPoints')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-right text-xs sm:text-sm hidden sm:table-cell">{t('weekly.transferCost')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-right text-xs sm:text-sm">{t('player.vsAvg')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {weeklyDetails.map((detail) => {
+                  const diff = detail.points - averageScore;
+                  return (
+                    <tr key={detail.week} className="table-row">
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 font-semibold text-sm sm:text-base">{t('weekly.gw')} {detail.week}</td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center hidden md:table-cell">
+                        {detail.property && detail.property !== 'None' ? (
+                          <span className="inline-block px-2 sm:px-3 md:px-4 py-1 sm:py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-lg font-semibold text-xs sm:text-sm">
+                            {detail.property === 'Wildcard' && '🃏'}
+                            {detail.property === 'Bench Boost' && '💪'}
+                            {detail.property === 'Free Hit' && '🎯'}
+                            {detail.property === 'Triple Captain' && '👑'}
+                            {' '}{translateChipName(detail.property)}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 dark:text-gray-600 text-sm">-</span>
+                        )}
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-right">
+                        <span className="text-xl sm:text-2xl font-bold text-primary">{detail.points}</span>
+                        {detail.property && detail.property !== 'None' && (
+                          <div className="text-xs text-blue-600 dark:text-blue-400 md:hidden mt-1">
+                            🎮 {translateChipName(detail.property)}
+                          </div>
+                        )}
+                        {detail.negatives !== 0 && (
+                          <div className="text-xs text-red-500 sm:hidden mt-1">
+                            {t('weekly.transferCost')}: -{detail.negatives}
+                          </div>
+                        )}
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-right hidden sm:table-cell">
+                        {detail.negatives !== 0 ? (
+                          <span className="text-base sm:text-lg font-bold text-red-500">{detail.negatives}</span>
+                        ) : (
+                          <span className="text-gray-400 dark:text-gray-600">0</span>
+                        )}
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-right">
+                        <span className={`font-semibold text-sm sm:text-base ${
+                          diff > 0 ? 'text-green-500' : diff < 0 ? 'text-red-500' : 'text-gray-500'
+                        }`}>
+                          {diff > 0 ? '+' : ''}{diff.toFixed(1)}
                         </span>
-                      ) : (
-                        <span className="text-gray-400 dark:text-gray-600 text-sm">-</span>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <span className="text-2xl font-bold text-primary">{detail.points}</span>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      {detail.negatives !== 0 ? (
-                        <span className="text-lg font-bold text-red-500">{detail.negatives}</span>
-                      ) : (
-                        <span className="text-gray-400 dark:text-gray-600">0</span>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <span className={`font-semibold ${
-                        diff > 0 ? 'text-green-500' : diff < 0 ? 'text-red-500' : 'text-gray-500'
-                      }`}>
-                        {diff > 0 ? '+' : ''}{diff.toFixed(1)}
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       {/* Actions */}
-      <div className="flex gap-4">
-        <Link href="/rankings" className="btn-secondary">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <Link href="/rankings" className="btn-secondary text-center">
           ← {t('player.backToRankings')}
         </Link>
-        <Link href="/weekly" className="btn-secondary">
+        <Link href="/weekly" className="btn-secondary text-center">
           {t('player.viewWeekly')}
         </Link>
       </div>
