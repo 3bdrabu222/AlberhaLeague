@@ -143,4 +143,3 @@ const PerformancePrediction: React.FC<PerformancePredictionProps> = ({ maxPlayer
 };
 
 export default PerformancePrediction;
-
