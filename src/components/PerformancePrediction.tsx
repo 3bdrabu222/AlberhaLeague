@@ -17,13 +17,16 @@ const PerformancePrediction: React.FC<PerformancePredictionProps> = ({ maxPlayer
   const predictions = players.map(player => {
     const stats = getPlayerStats(player.id);
     const weeklyScores = stats?.weeklyScores || [];
+    const currentAvg = stats?.averageScore || 0;
     
     if (weeklyScores.length < 3) {
       return {
         player,
-        predictedNext: stats?.averageScore || 0,
+        predictedNext: currentAvg,
         confidence: 'low',
         method: 'average',
+        currentAvg,
+        trend: 'stable' as const,
       };
     }
 
@@ -49,8 +52,8 @@ const PerformancePrediction: React.FC<PerformancePredictionProps> = ({ maxPlayer
       predictedNext,
       confidence,
       method: 'combined',
-      currentAvg: stats?.averageScore || 0,
-      trend: predictedNext > (stats?.averageScore || 0) ? 'up' : 'down',
+      currentAvg,
+      trend: predictedNext > currentAvg ? 'up' : 'down',
     };
   });
 
@@ -90,12 +93,12 @@ const PerformancePrediction: React.FC<PerformancePredictionProps> = ({ maxPlayer
             </div>
             <div className="flex items-center justify-between text-xs">
               <div className="text-gray-500 dark:text-gray-400">
-                {t('stats.currentAvg')}: {pred.currentAvg.toFixed(1)}
+                {t('stats.currentAvg')}: {(pred.currentAvg ?? 0).toFixed(1)}
               </div>
               <div className={`font-semibold ${
-                pred.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                pred.trend === 'up' ? 'text-green-600' : pred.trend === 'down' ? 'text-red-600' : 'text-gray-600'
               }`}>
-                {pred.trend === 'up' ? '↑' : '↓'} {Math.abs(pred.predictedNext - pred.currentAvg).toFixed(1)}
+                {pred.trend === 'up' ? '↑' : pred.trend === 'down' ? '↓' : '→'} {Math.abs(pred.predictedNext - (pred.currentAvg ?? 0)).toFixed(1)}
               </div>
             </div>
             <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">
@@ -122,7 +125,7 @@ const PerformancePrediction: React.FC<PerformancePredictionProps> = ({ maxPlayer
           <BarChart data={predictions.map(p => ({ 
             name: translatePlayerName(p.player.name), 
             predicted: p.predictedNext,
-            average: p.currentAvg 
+            average: p.currentAvg ?? 0
           }))}>
             <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
             <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
