@@ -22,10 +22,10 @@ const PlayerAvatar: React.FC<PlayerAvatarProps> = ({
   const [triedPng, setTriedPng] = useState(false);
 
   const sizeClasses = {
-    sm: 'w-10 h-10',
-    md: 'w-14 h-14',
-    lg: 'w-16 h-16',
-    xl: 'w-24 h-24',
+    sm: 'w-8 h-8 sm:w-10 sm:h-10',
+    md: 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14',
+    lg: 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16',
+    xl: 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24',
   };
 
   const textSizes = {
@@ -72,7 +72,7 @@ const PlayerAvatar: React.FC<PlayerAvatarProps> = ({
           rank === 2 ? 'bg-gray-300 text-gray-700' :
           rank === 3 ? 'bg-orange-400 text-orange-900' :
           'bg-purple-600 text-white'
-        } ${size === 'sm' ? 'w-6 h-6 text-xs' : size === 'md' ? 'w-7 h-7 text-sm' : 'w-8 h-8 text-base'}`}>
+        } ${size === 'sm' ? 'w-5 h-5 text-[10px] sm:w-6 sm:h-6 sm:text-xs' : size === 'md' ? 'w-5 h-5 text-[10px] sm:w-6 sm:h-6 sm:text-xs md:w-7 md:h-7 md:text-sm' : 'w-6 h-6 text-xs sm:w-7 sm:h-7 sm:text-sm md:w-8 md:h-8 md:text-base'}`}>
           {rank}
         </div>
       )}

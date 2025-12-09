@@ -147,15 +147,15 @@ export default function ComparePage() {
                 <table className="w-full">
                 <thead>
                   <tr className="table-header">
-                    <th className="px-4 py-4 text-end">{t('compare.stat')}</th>
+                    <th className="px-2 sm:px-4 py-3 sm:py-4 text-end text-xs sm:text-sm">{t('compare.stat')}</th>
                     {comparisonData.map((data, index) => {
                       const player = players.find(p => p.id === data.id);
                       return (
-                        <th key={data.id} className="px-4 py-4 text-center">
-                          <div className="flex flex-col items-center gap-2">
-                            {player && <PlayerAvatar player={player} size="md" />}
-                            <div className="font-semibold">{translatePlayerName(data.name)}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                        <th key={data.id} className="px-2 sm:px-4 py-3 sm:py-4 text-center text-xs sm:text-sm">
+                          <div className="flex flex-col items-center gap-1 sm:gap-2">
+                            {player && <PlayerAvatar player={player} size="sm" className="sm:!w-10 sm:!h-10" />}
+                            <div className="font-semibold text-xs sm:text-sm truncate max-w-[80px] sm:max-w-none">{translatePlayerName(data.name)}</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400 hidden sm:block truncate">
                               {data.teamName ? translateTeamName(data.teamName) : ''}
                             </div>
                           </div>
@@ -166,44 +166,44 @@ export default function ComparePage() {
                 </thead>
                 <tbody>
                   <tr className="table-row">
-                    <td className="px-4 py-4 font-semibold">{t('compare.totalPoints')}</td>
+                    <td className="px-2 sm:px-4 py-3 sm:py-4 font-semibold text-xs sm:text-sm">{t('compare.totalPoints')}</td>
                     {comparisonData.map((data) => (
-                      <td key={data.id} className="px-4 py-4 text-center">
-                        <span className="text-2xl font-bold text-purple-600">{data.totalPoints}</span>
+                      <td key={data.id} className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                        <span className="text-lg sm:text-2xl font-bold text-purple-600">{data.totalPoints}</span>
                       </td>
                     ))}
                   </tr>
                   <tr className="table-row">
-                    <td className="px-4 py-4 font-semibold">{t('compare.averageScore')}</td>
+                    <td className="px-2 sm:px-4 py-3 sm:py-4 font-semibold text-xs sm:text-sm">{t('compare.averageScore')}</td>
                     {comparisonData.map((data) => (
-                      <td key={data.id} className="px-4 py-4 text-center">
-                        <span className="text-xl font-bold">{data.averageScore.toFixed(1)}</span>
+                      <td key={data.id} className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                        <span className="text-base sm:text-xl font-bold">{data.averageScore.toFixed(1)}</span>
                       </td>
                     ))}
                   </tr>
                   <tr className="table-row">
-                    <td className="px-4 py-4 font-semibold">{t('compare.highestWeek')}</td>
+                    <td className="px-2 sm:px-4 py-3 sm:py-4 font-semibold text-xs sm:text-sm">{t('compare.highestWeek')}</td>
                     {comparisonData.map((data) => (
-                      <td key={data.id} className="px-4 py-4 text-center">
-                        <span className="text-xl font-bold text-green-500">{data.highestWeek}</span>
+                      <td key={data.id} className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                        <span className="text-base sm:text-xl font-bold text-green-500">{data.highestWeek}</span>
                       </td>
                     ))}
                   </tr>
                   <tr className="table-row">
-                    <td className="px-4 py-4 font-semibold">{t('compare.lowestWeek')}</td>
+                    <td className="px-2 sm:px-4 py-3 sm:py-4 font-semibold text-xs sm:text-sm">{t('compare.lowestWeek')}</td>
                     {comparisonData.map((data) => (
-                      <td key={data.id} className="px-4 py-4 text-center">
-                        <span className="text-xl font-bold text-red-500">{data.lowestWeek}</span>
+                      <td key={data.id} className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                        <span className="text-base sm:text-xl font-bold text-red-500">{data.lowestWeek}</span>
                       </td>
                     ))}
                   </tr>
                   <tr className="table-row">
-                    <td className="px-4 py-4 font-semibold">{t('compare.consistency')}</td>
+                    <td className="px-2 sm:px-4 py-3 sm:py-4 font-semibold text-xs sm:text-sm">{t('compare.consistency')}</td>
                     {comparisonData.map((data) => (
-                      <td key={data.id} className="px-4 py-4 text-center">
-                        <span className="text-lg font-semibold">
+                      <td key={data.id} className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                        <span className="text-sm sm:text-lg font-semibold">
                           {data.consistency.toFixed(1)}
-                          <span className="text-xs text-gray-500 dark:text-gray-400 mr-1">
+                          <span className="text-xs text-gray-500 dark:text-gray-400 mr-1 hidden sm:inline">
                             ({data.consistency < 10 ? t('compare.veryConsistent') : data.consistency < 15 ? t('compare.consistent') : t('compare.inconsistent')})
                           </span>
                         </span>
@@ -220,13 +220,13 @@ export default function ComparePage() {
           <div className="card">
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('compare.weeklyPerformance')}</h2>
             <div className="w-full overflow-x-auto">
-              <ResponsiveContainer width="100%" height={300} minWidth={600}>
+              <ResponsiveContainer width="100%" height={300} minWidth={400}>
               <LineChart data={weeklyChartData}>
                 <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
-                <XAxis dataKey="week" />
-                <YAxis />
+                <XAxis dataKey="week" tick={{ fontSize: 10 }} />
+                <YAxis tick={{ fontSize: 10 }} />
                 <Tooltip />
-                <Legend />
+                <Legend wrapperStyle={{ fontSize: '12px' }} />
                 {comparisonData.map((data, index) => (
                   <Line
                     key={data.id}
@@ -234,9 +234,9 @@ export default function ComparePage() {
                     dataKey={`player${index + 1}`}
                     name={translatePlayerName(data.name)}
                     stroke={COLORS[index % COLORS.length]}
-                    strokeWidth={3}
-                    dot={{ r: 4 }}
-                    activeDot={{ r: 6 }}
+                    strokeWidth={2}
+                    dot={{ r: 3 }}
+                    activeDot={{ r: 5 }}
                   />
                 ))}
               </LineChart>
@@ -330,11 +330,11 @@ export default function ComparePage() {
           <div className="card">
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('compare.totalPointsComparison')}</h2>
             <div className="w-full overflow-x-auto">
-              <ResponsiveContainer width="100%" height={300} minWidth={400}>
+              <ResponsiveContainer width="100%" height={300} minWidth={300}>
               <BarChart data={comparisonData.map(d => ({ name: translatePlayerName(d.name), points: d.totalPoints }))}>
                 <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
-                <XAxis dataKey="name" />
-                <YAxis />
+                <XAxis dataKey="name" tick={{ fontSize: 10 }} angle={-45} textAnchor="end" height={80} />
+                <YAxis tick={{ fontSize: 10 }} />
                 <Tooltip />
                 <Bar dataKey="points" fill="#9333EA" radius={[8, 8, 0, 0]}>
                   {comparisonData.map((_, index) => (

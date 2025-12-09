@@ -8,7 +8,7 @@ import PlayerAvatar from '@/components/PlayerAvatar';
 export default function Home() {
   const { t, translatePlayerName, translateTeamName } = useLanguage();
   const players = getPlayers();
-  const topPlayers = players.slice(0, 5);
+  const topPlayers = players; // Show all players instead of just top 5
   const totalPlayers = players.length;
   const totalWeeks = getTotalWeeks();
   const currentGameweek = totalWeeks;
@@ -150,40 +150,58 @@ export default function Home() {
       </section>
 
       {/* League Standings */}
-      <section className="card">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 mb-4 sm:mb-6">
+      <section className="card overflow-hidden p-0 sm:p-4 md:p-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 mb-4 sm:mb-6 px-4 sm:px-0 pt-4 sm:pt-0">
           <h2 className="text-xl sm:text-2xl font-bold">{t('home.leagueStandings')}</h2>
           <Link href="/rankings" className="text-purple-600 hover:text-purple-700 font-semibold text-sm">
             {t('home.viewFull')} →
           </Link>
         </div>
         
-        <div className="space-y-2 sm:space-y-3">
-          {topPlayers.map((player, index) => (
-            <Link
-              key={player.id}
-              href={`/player/${player.id}`}
-              className="flex items-center justify-between p-3 sm:p-4 bg-white dark:bg-dark-card rounded-lg hover:shadow-lg transition-all group border border-gray-200 dark:border-gray-700"
-            >
-              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 min-w-0 flex-1">
-                <PlayerAvatar player={player} size="md" showRank rank={index + 1} />
-                <div className="min-w-0 flex-1">
-                  <div className="font-semibold text-base sm:text-lg group-hover:text-purple-600 transition-colors truncate">
-                    {translatePlayerName(player.name)}
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 truncate">
-                    {player.teamName ? translateTeamName(player.teamName) : ''}
-                  </div>
-                </div>
-              </div>
-              <div className="text-end shrink-0 mr-2 sm:mr-0">
-                <div className="text-xl sm:text-2xl font-bold text-purple-600">
-                  {player.totalPoints}
-                </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{t('home.points')}</div>
-              </div>
-            </Link>
-          ))}
+        {/* Mobile-friendly table view */}
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <div className="inline-block min-w-full align-middle">
+            <table className="w-full">
+              <thead>
+                <tr className="table-header">
+                  <th className="px-2 sm:px-4 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('rankings.rank')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-end text-xs sm:text-sm">{t('rankings.manager')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm hidden sm:table-cell">{t('rankings.teamName')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('rankings.overallPoints')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('rankings.actions')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topPlayers.map((player, index) => (
+                  <tr key={player.id} className="table-row">
+                    <td className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                      <PlayerAvatar player={player} size="md" showRank rank={index + 1} className="mx-auto" />
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-end">
+                      <div className="font-semibold text-sm sm:text-base md:text-lg truncate max-w-[120px] sm:max-w-none">{translatePlayerName(player.name)}</div>
+                      <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 sm:hidden truncate">{player.teamName ? translateTeamName(player.teamName) : ''}</div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-center hidden sm:table-cell">
+                      <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">{player.teamName ? translateTeamName(player.teamName) : ''}</div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-center">
+                      <div className="text-xl sm:text-2xl font-bold text-purple-600">
+                        {player.totalPoints}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-center">
+                      <Link
+                        href={`/player/${player.id}`}
+                        className="inline-block px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium text-xs sm:text-sm"
+                      >
+                        {t('rankings.viewTeam')}
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
