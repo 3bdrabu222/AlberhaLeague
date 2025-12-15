@@ -18,25 +18,17 @@ const LeagueChart: React.FC<LeagueChartProps> = ({ players }) => {
   }));
 
   return (
-    <ResponsiveContainer width="100%" height={300} minHeight={250}>
-      <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 60 }}>
+    <ResponsiveContainer width="100%" height={350}>
+      <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
-        <XAxis 
-          dataKey="name" 
-          angle={-45} 
-          textAnchor="end" 
-          height={80}
-          tick={{ fontSize: 10 }}
-          interval={0}
-        />
-        <YAxis tick={{ fontSize: 10 }} />
+        <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />
+        <YAxis />
         <Tooltip
           contentStyle={{
             backgroundColor: 'rgba(0, 0, 0, 0.8)',
             border: 'none',
             borderRadius: '8px',
             color: '#fff',
-            fontSize: '12px',
           }}
         />
         <Bar dataKey="points" fill="#E3B341" radius={[8, 8, 0, 0]} />

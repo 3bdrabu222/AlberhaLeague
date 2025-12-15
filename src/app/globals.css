@@ -75,24 +75,6 @@
   .table-row {
     @apply border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-dark-hover transition-colors;
   }
-
-  /* Mobile table improvements */
-  @media (max-width: 640px) {
-    table {
-      font-size: 0.875rem;
-    }
-    
-    th, td {
-      padding: 0.5rem 0.25rem;
-      white-space: nowrap;
-    }
-    
-    /* Allow text wrapping in specific cells on mobile */
-    .table-row td:first-child,
-    .table-row td:nth-child(2) {
-      white-space: normal;
-    }
-  }
 }
 
 /* Custom scrollbar */
@@ -111,35 +93,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-500 dark:bg-gray-500;
-}
-
-/* Mobile-specific improvements */
-@media (max-width: 640px) {
-  /* Better touch targets */
-  button, a, input, select {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Improve table scrolling on mobile */
-  .overflow-x-auto {
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-  }
-  
-  /* Better spacing for mobile cards */
-  .card {
-    margin-bottom: 1rem;
-  }
-  
-  /* Improve text readability */
-  body {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  /* Better form inputs on mobile */
-  input, select, textarea {
-    font-size: 16px; /* Prevents zoom on iOS */
-  }
 }

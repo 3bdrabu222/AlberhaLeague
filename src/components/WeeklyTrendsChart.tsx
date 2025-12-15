@@ -31,21 +31,20 @@ const WeeklyTrendsChart: React.FC<WeeklyTrendsChartProps> = ({ players }) => {
   });
 
   return (
-    <ResponsiveContainer width="100%" height={300} minHeight={250}>
-      <LineChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
+    <ResponsiveContainer width="100%" height={350}>
+      <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
-        <XAxis dataKey="week" tick={{ fontSize: 10 }} />
-        <YAxis tick={{ fontSize: 10 }} />
+        <XAxis dataKey="week" />
+        <YAxis />
         <Tooltip
           contentStyle={{
             backgroundColor: 'rgba(0, 0, 0, 0.8)',
             border: 'none',
             borderRadius: '8px',
             color: '#fff',
-            fontSize: '12px',
           }}
         />
-        <Legend wrapperStyle={{ fontSize: '11px' }} />
+        <Legend />
         {players.map((player, index) => (
           <Line
             key={player.id}
@@ -53,8 +52,8 @@ const WeeklyTrendsChart: React.FC<WeeklyTrendsChartProps> = ({ players }) => {
             dataKey={translatePlayerName(player.name)}
             stroke={COLORS[index % COLORS.length]}
             strokeWidth={2}
-            dot={{ r: 3 }}
-            activeDot={{ r: 5 }}
+            dot={{ r: 4 }}
+            activeDot={{ r: 6 }}
           />
         ))}
       </LineChart>
