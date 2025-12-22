@@ -57,24 +57,24 @@ export default function Weekly() {
             <table className="w-full">
               <thead>
                 <tr className="table-header">
-                  <th className="px-2 sm:px-4 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('rankings.rank')}</th>
-                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-end text-xs sm:text-sm">{t('rankings.manager')}</th>
-                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm hidden md:table-cell">{t('weekly.chipUsed')}</th>
-                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('weekly.gwPoints')}</th>
-                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm hidden sm:table-cell">{t('weekly.transferCost')}</th>
-                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('rankings.actions')}</th>
+                  <th className="px-2 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 text-center text-xs sm:text-sm">{t('rankings.rank')}</th>
+                  <th className="px-2.5 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 text-end text-xs sm:text-sm">{t('rankings.manager')}</th>
+                  <th className="px-2.5 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 text-center text-xs hidden lg:table-cell">{t('weekly.chipUsed')}</th>
+                  <th className="px-2.5 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 text-center text-xs sm:text-sm">{t('weekly.gwPoints')}</th>
+                  <th className="px-2.5 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 text-center text-xs hidden md:table-cell">{t('weekly.transferCost')}</th>
+                  <th className="px-2 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 text-center text-xs">{t('rankings.actions')}</th>
                 </tr>
               </thead>
               <tbody>
                 {weekData.map((entry, index) => {
                   const player = getPlayerById(entry.playerId);
                   return (
-                    <tr key={entry.playerId} className="table-row">
-                      <td className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                    <tr key={entry.playerId} className="table-row hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-colors">
+                      <td className="px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 text-center">
                         {player ? (
-                          <PlayerAvatar player={player} size="md" showRank rank={index + 1} className="mx-auto" />
+                          <PlayerAvatar player={player} size="sm" showRank rank={index + 1} className="mx-auto" />
                         ) : (
-                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold mx-auto text-xs sm:text-sm ${
+                          <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-bold mx-auto text-xs sm:text-sm ${
                             index === 0 ? 'bg-yellow-400 text-yellow-900' :
                             index === 1 ? 'bg-gray-300 text-gray-700' :
                             index === 2 ? 'bg-orange-400 text-orange-900' :
@@ -84,46 +84,46 @@ export default function Weekly() {
                           </div>
                         )}
                       </td>
-                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-end">
-                        <div className="font-semibold text-sm sm:text-base md:text-lg truncate max-w-[120px] sm:max-w-none">{translatePlayerName(entry.playerName)}</div>
+                      <td className="px-2.5 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 text-end">
+                        <div className="font-semibold text-xs sm:text-sm md:text-base truncate max-w-[100px] sm:max-w-none">{translatePlayerName(entry.playerName)}</div>
                         {entry.property && entry.property !== 'None' && (
-                          <div className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 md:hidden mt-1">
+                          <div className="text-xs text-blue-600 dark:text-blue-400 lg:hidden mt-0.5">
                             🎮 {translateChipName(entry.property)}
                           </div>
                         )}
                         {entry.negatives && entry.negatives !== 0 && (
-                          <div className="text-xs sm:text-sm text-red-500 sm:hidden mt-1">
-                            {t('weekly.transferCost')}: -{entry.negatives}
+                          <div className="text-xs text-red-500 md:hidden mt-0.5">
+                            -{entry.negatives}
                           </div>
                         )}
                       </td>
-                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center hidden md:table-cell">
+                      <td className="px-2.5 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 text-center hidden lg:table-cell">
                         {entry.property && entry.property !== 'None' ? (
-                          <span className="inline-block px-2 sm:px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs sm:text-sm font-semibold">
+                          <span className="inline-block px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs md:text-sm font-semibold">
                             🎮 {translateChipName(entry.property)}
                           </span>
                         ) : (
-                          <span className="text-gray-400 dark:text-gray-600 text-sm">-</span>
+                          <span className="text-gray-400 dark:text-gray-600 text-xs md:text-sm">-</span>
                         )}
                       </td>
-                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center">
-                        <div className="text-xl sm:text-2xl font-bold text-purple-600">
+                      <td className="px-2.5 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 text-center">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-purple-600">
                           {entry.points}
                         </div>
                       </td>
-                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center hidden sm:table-cell">
+                      <td className="px-2.5 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 text-center hidden md:table-cell">
                         {entry.negatives && entry.negatives !== 0 ? (
-                          <span className="text-base sm:text-lg font-bold text-red-500">
+                          <span className="text-sm md:text-base font-bold text-red-500">
                             {entry.negatives}
                           </span>
                         ) : (
-                          <span className="text-gray-400 dark:text-gray-600">0</span>
+                          <span className="text-gray-400 dark:text-gray-600 text-xs md:text-sm">0</span>
                         )}
                       </td>
-                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-center">
+                      <td className="px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 text-center">
                         <Link
                           href={`/player/${entry.playerId}`}
-                          className="inline-block px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium text-xs sm:text-sm"
+                          className="inline-flex items-center justify-center px-1.5 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 bg-purple-600 hover:bg-purple-700 active:bg-purple-800 text-white rounded-lg transition-colors font-medium text-xs md:text-sm"
                         >
                           {t('common.view')}
                         </Link>

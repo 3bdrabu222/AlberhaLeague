@@ -2,7 +2,6 @@
 
 import { getLeagueStats, getPlayers, getTotalWeeks } from '@/utils/dataUtils';
 import LeagueChart from '@/components/LeagueChart';
-import WeeklyTrendsChart from '@/components/WeeklyTrendsChart';
 import PerformanceHeatMap from '@/components/PerformanceHeatMap';
 import TrendAnalysis from '@/components/TrendAnalysis';
 import PerformancePrediction from '@/components/PerformancePrediction';
@@ -64,20 +63,12 @@ export default function Stats() {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6">
         {/* Top Players Chart */}
         <div className="card">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('stats.top10')}</h2>
           <div className="w-full overflow-x-auto">
             <LeagueChart players={players.slice(0, 10)} />
-          </div>
-        </div>
-
-        {/* Weekly Trends */}
-        <div className="card">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('stats.weeklyTrends')}</h2>
-          <div className="w-full overflow-x-auto">
-            <WeeklyTrendsChart players={players.slice(0, 5)} />
           </div>
         </div>
       </div>

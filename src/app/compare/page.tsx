@@ -210,34 +210,6 @@ export default function ComparePage() {
                       </td>
                     ))}
                   </tr>
-                  {selectedPlayersData.length > 1 && (
-                    <tr className="table-row bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20 dark:to-transparent">
-                      <td className="px-4 py-4 font-semibold text-blue-600 dark:text-blue-400">
-                        {t('compare.pointsDifference')}
-                        <div className="text-xs font-normal text-gray-500 dark:text-gray-400 mt-1">
-                          {t('compare.pointsDifferenceNote')}
-                        </div>
-                      </td>
-                      {comparisonData.map((data, index) => {
-                        const firstPlayerPoints = comparisonData[0].totalPoints;
-                        const difference = data.totalPoints - firstPlayerPoints;
-                        const isFirst = index === 0;
-                        const isPositive = difference > 0;
-                        
-                        return (
-                          <td key={data.id} className="px-4 py-4 text-center">
-                            {isFirst ? (
-                              <span className="text-lg font-bold text-gray-400">-</span>
-                            ) : (
-                              <span className={`text-lg font-bold ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-                                {isPositive ? '+' : ''}{difference}
-                              </span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  )}
                 </tbody>
                 </table>
               </div>
