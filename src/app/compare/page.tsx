@@ -210,11 +210,118 @@ export default function ComparePage() {
                       </td>
                     ))}
                   </tr>
+                  {selectedPlayersData.length > 1 && (
+                    <tr className="table-row bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20 dark:to-transparent">
+                      <td className="px-4 py-4 font-semibold text-blue-600 dark:text-blue-400">
+                        {t('compare.pointsDifference')}
+                        <div className="text-xs font-normal text-gray-500 dark:text-gray-400 mt-1">
+                          {t('compare.pointsDifferenceNote')}
+                        </div>
+                      </td>
+                      {comparisonData.map((data, index) => {
+                        const firstPlayerPoints = comparisonData[0].totalPoints;
+                        const difference = data.totalPoints - firstPlayerPoints;
+                        const isFirst = index === 0;
+                        const isPositive = difference > 0;
+                        
+                        return (
+                          <td key={data.id} className="px-4 py-4 text-center">
+                            {isFirst ? (
+                              <span className="text-lg font-bold text-gray-400">-</span>
+                            ) : (
+                              <span className={`text-lg font-bold ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                                {isPositive ? '+' : ''}{difference}
+                              </span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  )}
                 </tbody>
                 </table>
               </div>
             </div>
           </div>
+
+          {/* Points Difference Analysis */}
+          {selectedPlayersData.length > 1 && (
+            <div className="card">
+              <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('compare.pointsDifference')}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {comparisonData.slice(1).map((data, index) => {
+                  const firstPlayer = comparisonData[0];
+                  const difference = data.totalPoints - firstPlayer.totalPoints;
+                  const isPositive = difference > 0;
+                  const percentage = ((difference / firstPlayer.totalPoints) * 100).toFixed(1);
+                  
+                  return (
+                    <div
+                      key={data.id}
+                      className={`p-4 rounded-lg border-2 transition-all ${
+                        isPositive
+                          ? 'border-green-300 bg-green-50 dark:border-green-700 dark:bg-green-900/20'
+                          : 'border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-900/20'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <div className="font-semibold text-lg">
+                            {translatePlayerName(firstPlayer.name)}
+                            <span className="text-gray-500 dark:text-gray-400 mx-2">vs</span>
+                            {translatePlayerName(data.name)}
+                          </div>
+                          <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                            {firstPlayer.totalPoints} vs {data.totalPoints}
+                          </div>
+                        </div>
+                        <div className="text-2xl">
+                          {isPositive ? '📈' : '📉'}
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-end gap-4">
+                        <div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                            {t('compare.pointsDifference')}
+                          </div>
+                          <div className={`text-3xl font-bold ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                            {isPositive ? '+' : ''}{difference}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                            {t('compare.percentage')}
+                          </div>
+                          <div className={`text-2xl font-bold ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                            {isPositive ? '+' : ''}{percentage}%
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 pt-4 border-t border-gray-300 dark:border-gray-600">
+                        <div className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+                          <div>
+                            {translatePlayerName(firstPlayer.name)} {t('compare.averageScore')}: <span className="font-semibold">{firstPlayer.averageScore.toFixed(1)}</span>
+                          </div>
+                          <div>
+                            {translatePlayerName(data.name)} {t('compare.averageScore')}: <span className="font-semibold">{data.averageScore.toFixed(1)}</span>
+                          </div>
+                          <div className="pt-2">
+                            {t('compare.averageScore')} {t('compare.pointsDifference')}: 
+                            <span className={`font-semibold ml-1 ${(data.averageScore - firstPlayer.averageScore) > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                              {(data.averageScore - firstPlayer.averageScore) > 0 ? '+' : ''}{(data.averageScore - firstPlayer.averageScore).toFixed(1)}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* Weekly Performance Chart */}
           <div className="card">

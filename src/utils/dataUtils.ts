@@ -11,6 +11,23 @@ export const getWeekData = (week: number): WeeklyScore[] => {
   return weeksData[weekKey]?.sort((a, b) => b.points - a.points) || [];
 };
 
+export const getPlayerCumulativeScore = (playerId: number, upToWeek: number): number => {
+  let cumulativeScore = 0;
+  for (let i = 1; i <= upToWeek; i++) {
+    const weekData = getWeekData(i);
+    const playerWeek = weekData.find(w => w.playerId === playerId);
+    if (playerWeek) {
+      let weekScore = playerWeek.points;
+      // طرح تكلفة الانتقالات من نقاط الجولة (negatives قيمة سالبة)
+      if (playerWeek.negatives && playerWeek.negatives !== 0) {
+        weekScore += playerWeek.negatives; // إضافة القيمة السالبة (طرح)
+      }
+      cumulativeScore += weekScore;
+    }
+  }
+  return cumulativeScore;
+};
+
 export const getAllWeeksData = () => {
   return weeksData;
 };

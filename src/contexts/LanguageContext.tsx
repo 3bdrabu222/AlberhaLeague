@@ -163,6 +163,9 @@ const translations: Record<Language, Record<string, string>> = {
     'weekly.weekStats': 'إحصائيات الجولة',
     'weekly.lowestScore': 'أقل نتيجة',
     'weekly.totalPlayers': 'مجموع اللاعبين',
+    'weekly.cumulativeTable': 'جدول المجموع المتراكم',
+    'weekly.cumulativeScore': 'المجموع المتراكم',
+    'weekly.fromGWToGW': 'من GW1 إلى GW',
     
     // Player Profile
     'player.profile': 'ملف المدير',
@@ -314,6 +317,10 @@ const translations: Record<Language, Record<string, string>> = {
     'compare.totalPointsComparison': 'مقارنة مجموع النقاط',
     'compare.noPlayersSelected': 'لم يتم اختيار لاعبين',
     'compare.selectPlayersToCompare': 'اختر لاعبين من القائمة أعلاه للمقارنة',
+    'compare.pointsDifference': 'فرق النقاط',
+    'compare.pointsDifferenceFrom': 'فرق النقاط من',
+    'compare.pointsDifferenceNote': 'الفرق مقارنة باللاعب الأول المختار',
+    'compare.percentage': 'النسبة المئوية',
     
     // Common
     'common.loading': 'جاري التحميل...',
@@ -418,6 +425,9 @@ const translations: Record<Language, Record<string, string>> = {
     'weekly.weekStats': 'Week Statistics',
     'weekly.lowestScore': 'Lowest Score',
     'weekly.totalPlayers': 'Total Players',
+    'weekly.cumulativeTable': 'Cumulative Total Table',
+    'weekly.cumulativeScore': 'Cumulative Score',
+    'weekly.fromGWToGW': 'From GW1 to GW',
     
     // Player Profile
     'player.profile': 'Manager Profile',
@@ -569,6 +579,10 @@ const translations: Record<Language, Record<string, string>> = {
     'compare.totalPointsComparison': 'Total Points Comparison',
     'compare.noPlayersSelected': 'No Players Selected',
     'compare.selectPlayersToCompare': 'Select players from the list above to compare',
+    'compare.pointsDifference': 'Points Difference',
+    'compare.pointsDifferenceFrom': 'Points Difference From',
+    'compare.pointsDifferenceNote': 'Difference compared to the first selected player',
+    'compare.percentage': 'Percentage',
     
     // Common
     'common.loading': 'Loading...',

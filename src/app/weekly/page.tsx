@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { getTotalWeeks, getWeekData, getPlayerById } from '@/utils/dataUtils';
+import { getTotalWeeks, getWeekData, getPlayerById, getPlayerCumulativeScore } from '@/utils/dataUtils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PlayerAvatar from '@/components/PlayerAvatar';
 
@@ -131,6 +131,61 @@ export default function Weekly() {
                     </tr>
                   );
                 })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      {/* Cumulative Score Table */}
+      <div className="card overflow-hidden p-0 sm:p-4 md:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 pt-4 sm:pt-0">{t('weekly.cumulativeTable')} (GW1-{selectedWeek})</h2>
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <div className="inline-block min-w-full align-middle">
+            <table className="w-full">
+              <thead>
+                <tr className="table-header">
+                  <th className="px-2 sm:px-4 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('rankings.rank')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-end text-xs sm:text-sm">{t('rankings.manager')}</th>
+                  <th className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm">{t('weekly.cumulativeScore')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {weekData
+                  .map((entry) => ({
+                    ...entry,
+                    cumulativeScore: getPlayerCumulativeScore(entry.playerId, selectedWeek),
+                  }))
+                  .sort((a, b) => b.cumulativeScore - a.cumulativeScore)
+                  .map((entry, index) => {
+                    const player = getPlayerById(entry.playerId);
+                    return (
+                      <tr key={entry.playerId} className="table-row">
+                        <td className="px-2 sm:px-4 py-3 sm:py-4 text-center">
+                          {player ? (
+                            <PlayerAvatar player={player} size="md" showRank rank={index + 1} className="mx-auto" />
+                          ) : (
+                            <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold mx-auto text-xs sm:text-sm ${
+                              index === 0 ? 'bg-yellow-400 text-yellow-900' :
+                              index === 1 ? 'bg-gray-300 text-gray-700' :
+                              index === 2 ? 'bg-orange-400 text-orange-900' :
+                              'bg-gray-200 dark:bg-dark-hover text-gray-700 dark:text-gray-300'
+                            }`}>
+                              {index + 1}
+                            </div>
+                          )}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-end">
+                          <div className="font-semibold text-sm sm:text-base md:text-lg">{translatePlayerName(entry.playerName)}</div>
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-center">
+                          <div className="text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400">
+                            {entry.cumulativeScore}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
           </div>

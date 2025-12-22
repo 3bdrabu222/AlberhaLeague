@@ -8,7 +8,8 @@ import PlayerAvatar from '@/components/PlayerAvatar';
 export default function Home() {
   const { t, translatePlayerName, translateTeamName } = useLanguage();
   const players = getPlayers();
-  const topPlayers = players.slice(0, 5);
+  const allPlayers = players; // عرض جميع اللاعبين
+  const topPlayers = players.slice(0, 5); // أول 5 لاعبين للإحصائيات
   const totalPlayers = players.length;
   const totalWeeks = getTotalWeeks();
   const currentGameweek = totalWeeks;
@@ -151,36 +152,36 @@ export default function Home() {
 
       {/* League Standings */}
       <section className="card">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 mb-4 sm:mb-6">
-          <h2 className="text-xl sm:text-2xl font-bold">{t('home.leagueStandings')}</h2>
-          <Link href="/rankings" className="text-purple-600 hover:text-purple-700 font-semibold text-sm">
-            {t('home.viewFull')} →
-          </Link>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 mb-4 sm:mb-6 px-0 sm:px-0">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{t('home.leagueStandings')}</h2>
+          <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 whitespace-nowrap">
+            {totalPlayers} {t('home.managers')}
+          </div>
         </div>
         
-        <div className="space-y-2 sm:space-y-3">
-          {topPlayers.map((player, index) => (
+        <div className="space-y-1.5 sm:space-y-2 md:space-y-3 -mx-4 sm:mx-0 px-4 sm:px-0 max-h-[600px] sm:max-h-none overflow-y-auto">
+          {allPlayers.map((player, index) => (
             <Link
               key={player.id}
               href={`/player/${player.id}`}
-              className="flex items-center justify-between p-3 sm:p-4 bg-white dark:bg-dark-card rounded-lg hover:shadow-lg transition-all group border border-gray-200 dark:border-gray-700"
+              className="flex items-center justify-between p-2.5 sm:p-3 md:p-4 bg-white dark:bg-dark-card rounded-lg hover:shadow-lg hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-all group border border-gray-200 dark:border-gray-700 active:bg-purple-100 dark:active:bg-purple-900/20"
             >
-              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 min-w-0 flex-1">
-                <PlayerAvatar player={player} size="md" showRank rank={index + 1} />
+              <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 min-w-0 flex-1">
+                <PlayerAvatar player={player} size="sm" showRank rank={index + 1} />
                 <div className="min-w-0 flex-1">
-                  <div className="font-semibold text-base sm:text-lg group-hover:text-purple-600 transition-colors truncate">
+                  <div className="font-semibold text-xs sm:text-sm md:text-base lg:text-lg group-hover:text-purple-600 transition-colors truncate">
                     {translatePlayerName(player.name)}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 truncate">
-                    {player.teamName ? translateTeamName(player.teamName) : ''}
+                  <div className="text-xs text-gray-500 dark:text-gray-500 truncate hidden sm:block">
+                    {player.teamName ? translateTeamName(player.teamName) : '-'}
                   </div>
                 </div>
               </div>
-              <div className="text-end shrink-0 mr-2 sm:mr-0">
-                <div className="text-xl sm:text-2xl font-bold text-purple-600">
+              <div className="text-end shrink-0 ml-2 sm:ml-3 md:ml-4">
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-purple-600">
                   {player.totalPoints}
                 </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{t('home.points')}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 hidden md:block">{t('home.points')}</div>
               </div>
             </Link>
           ))}
