@@ -19,15 +19,15 @@
       "totalPoints": 957
     },
     {
-      "id": 2,
-      "name": "Osama Mohammed",
-      "teamName": "The fool",
-      "totalPoints": 944
-    },
-    {
       "id": 5,
       "name": "Ayman Mohammed",
       "teamName": "Aemn",
+      "totalPoints": 944
+    },
+    {
+      "id": 2,
+      "name": "Osama Mohammed",
+      "teamName": "The fool",
       "totalPoints": 944
     },
     {
