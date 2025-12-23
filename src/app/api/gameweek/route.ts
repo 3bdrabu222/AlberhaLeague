@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     const { action, week, data } = body;
 
     // Read current data from Vercel KV
-    let playersData = await kv.get('playersData') || { players: [] };
+    let playersData: any = await kv.get('playersData') || { players: [] };
     let weeksData: any = await kv.get('weeksData') || {};
 
     if (action === 'add') {
