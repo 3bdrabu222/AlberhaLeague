@@ -1,18 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { kv } from '@vercel/kv';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { action, week, data } = body;
 
-    // Read current data files
-    const playersPath = path.join(process.cwd(), 'src/data/players.json');
-    const weeksPath = path.join(process.cwd(), 'src/data/weeks.json');
-
-    const playersData = JSON.parse(fs.readFileSync(playersPath, 'utf8'));
-    const weeksData = JSON.parse(fs.readFileSync(weeksPath, 'utf8'));
+    // Read current data from Vercel KV
+    let playersData = await kv.get('playersData') || { players: [] };
+    let weeksData = await kv.get('weeksData') || {};
 
     if (action === 'add') {
       // Add new gameweek
@@ -34,9 +30,9 @@ export async function POST(request: NextRequest) {
       // Re-sort players by total points
       playersData.players.sort((a: any, b: any) => b.totalPoints - a.totalPoints);
 
-      // Save updated data
-      fs.writeFileSync(playersPath, JSON.stringify(playersData, null, 2));
-      fs.writeFileSync(weeksPath, JSON.stringify(weeksData, null, 2));
+      // Save updated data to Vercel KV
+      await kv.set('playersData', playersData);
+      await kv.set('weeksData', weeksData);
 
       return NextResponse.json({ 
         message: `Gameweek ${week} added successfully! Rankings updated.`,
@@ -77,9 +73,9 @@ export async function POST(request: NextRequest) {
       // Re-sort players by total points
       playersData.players.sort((a: any, b: any) => b.totalPoints - a.totalPoints);
 
-      // Save updated data
-      fs.writeFileSync(playersPath, JSON.stringify(playersData, null, 2));
-      fs.writeFileSync(weeksPath, JSON.stringify(weeksData, null, 2));
+      // Save updated data to Vercel KV
+      await kv.set('playersData', playersData);
+      await kv.set('weeksData', weeksData);
 
       return NextResponse.json({ 
         message: `Gameweek ${week} updated successfully! Rankings updated.`,
@@ -124,9 +120,9 @@ export async function POST(request: NextRequest) {
       // Re-sort players by total points
       playersData.players.sort((a: any, b: any) => b.totalPoints - a.totalPoints);
 
-      // Save updated data
-      fs.writeFileSync(playersPath, JSON.stringify(playersData, null, 2));
-      fs.writeFileSync(weeksPath, JSON.stringify(weeksData, null, 2));
+      // Save updated data to Vercel KV
+      await kv.set('playersData', playersData);
+      await kv.set('weeksData', weeksData);
 
       return NextResponse.json({ 
         message: `Gameweek ${week} deleted successfully! All subsequent weeks have been renumbered.`,
