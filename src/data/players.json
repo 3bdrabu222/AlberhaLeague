@@ -4,37 +4,37 @@
       "id": 4,
       "name": "Ahmed Salah",
       "teamName": "The dark passenger",
-      "totalPoints": 1003
-    },
-    {
-      "id": 1,
-      "name": "Ahmed Mohammed",
-      "teamName": "Ahmed Alshre'e",
-      "totalPoints": 962
+      "totalPoints": 1054
     },
     {
       "id": 3,
       "name": "Saad Saleh",
       "teamName": "Jupa 34",
-      "totalPoints": 957
+      "totalPoints": 1011
     },
     {
-      "id": 5,
-      "name": "Ayman Mohammed",
-      "teamName": "Aemn",
-      "totalPoints": 944
+      "id": 1,
+      "name": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "totalPoints": 1007
     },
     {
       "id": 2,
       "name": "Osama Mohammed",
       "teamName": "The fool",
-      "totalPoints": 944
+      "totalPoints": 986
+    },
+    {
+      "id": 5,
+      "name": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "totalPoints": 970
     },
     {
       "id": 6,
       "name": "Abdurabu Saleh",
       "teamName": "Marvelous Team",
-      "totalPoints": 919
+      "totalPoints": 953
     }
   ]
 }
