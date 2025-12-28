@@ -804,15 +804,23 @@
       "playerId": 4,
       "playerName": "Ahmed Salah",
       "teamName": "The dark passenger",
-      "points": 96,
+      "points": 98,
       "property": "Triple Captain",
       "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 91,
+      "property": "Triple Captain",
+      "negatives": -4
     },
     {
       "playerId": 6,
       "playerName": "Abdurabu Saleh",
       "teamName": "Marvelous Team",
-      "points": 85,
+      "points": 87,
       "property": "None",
       "negatives": 0
     },
@@ -820,23 +828,15 @@
       "playerId": 1,
       "playerName": "Ahmed Mohammed",
       "teamName": "Ahmed Alshre'e",
-      "points": 80,
+      "points": 83,
       "property": "None",
-      "negatives": -4
-    },
-    {
-      "playerId": 3,
-      "playerName": "Saad Saleh",
-      "teamName": "Jupa 34",
-      "points": 78,
-      "property": "Triple Captain",
       "negatives": -4
     },
     {
       "playerId": 5,
       "playerName": "Ayman Mohammed",
       "teamName": "Aemn",
-      "points": 64,
+      "points": 66,
       "property": "Bench Boost",
       "negatives": -12
     },
@@ -844,8 +844,58 @@
       "playerId": 2,
       "playerName": "Osama Mohammed",
       "teamName": "The fool",
-      "points": 49,
+      "points": 58,
       "property": "Triple Captain",
+      "negatives": 0
+    }
+  ],
+  "week18": [
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 54,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 51,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 50,
+      "property": "None",
+      "negatives": -8
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 45,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 42,
+      "property": "None",
+      "negatives": -16
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 34,
+      "property": "None",
       "negatives": 0
     }
   ]
