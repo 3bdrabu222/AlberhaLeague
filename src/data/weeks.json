@@ -901,18 +901,18 @@
   ],
   "week19": [
     {
-      "playerId": 5,
-      "playerName": "Ayman Mohammed",
-      "teamName": "Aemn",
-      "points": 21,
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 42,
       "property": "None",
       "negatives": -4
     },
     {
-      "playerId": 6,
-      "playerName": "Abdurabu Saleh",
-      "teamName": "Marvelous Team",
-      "points": 21,
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 39,
       "property": "None",
       "negatives": -4
     },
@@ -920,15 +920,7 @@
       "playerId": 2,
       "playerName": "Osama Mohammed",
       "teamName": "The fool",
-      "points": 15,
-      "property": "None",
-      "negatives": -4
-    },
-    {
-      "playerId": 3,
-      "playerName": "Saad Saleh",
-      "teamName": "Jupa 34",
-      "points": 14,
+      "points": 34,
       "property": "None",
       "negatives": -4
     },
@@ -936,7 +928,15 @@
       "playerId": 4,
       "playerName": "Ahmed Salah",
       "teamName": "The dark passenger",
-      "points": 12,
+      "points": 31,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 26,
       "property": "None",
       "negatives": -4
     },
@@ -944,7 +944,7 @@
       "playerId": 1,
       "playerName": "Ahmed Mohammed",
       "teamName": "Ahmed Alshre'e",
-      "points": 11,
+      "points": 26,
       "property": "None",
       "negatives": -8
     }
