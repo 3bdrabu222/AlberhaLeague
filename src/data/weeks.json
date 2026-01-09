@@ -1004,7 +1004,15 @@
       "playerId": 4,
       "playerName": "Ahmed Salah",
       "teamName": "The dark passenger",
-      "points": 55,
+      "points": 62,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 60,
       "property": "None",
       "negatives": -4
     },
@@ -1012,15 +1020,7 @@
       "playerId": 5,
       "playerName": "Ayman Mohammed",
       "teamName": "Aemn",
-      "points": 51,
-      "property": "None",
-      "negatives": -4
-    },
-    {
-      "playerId": 3,
-      "playerName": "Saad Saleh",
-      "teamName": "Jupa 34",
-      "points": 47,
+      "points": 58,
       "property": "None",
       "negatives": -4
     },
@@ -1028,15 +1028,15 @@
       "playerId": 2,
       "playerName": "Osama Mohammed",
       "teamName": "The fool",
-      "points": 47,
+      "points": 54,
       "property": "None",
       "negatives": 0
     },
     {
-      "playerId": 6,
-      "playerName": "Abdurabu Saleh",
-      "teamName": "Marvelous Team",
-      "points": 47,
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 45,
       "property": "None",
       "negatives": -4
     },
@@ -1044,7 +1044,7 @@
       "playerId": 1,
       "playerName": "Ahmed Mohammed",
       "teamName": "Ahmed Alshre'e",
-      "points": 27,
+      "points": 31,
       "property": "None",
       "negatives": -4
     }
