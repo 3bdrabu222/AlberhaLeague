@@ -1148,5 +1148,55 @@
       "property": "None",
       "negatives": 0
     }
+  ],
+  "week24": [
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 75,
+      "property": "Bench Boost",
+      "negatives": -8
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 64,
+      "property": "None",
+      "negatives": -4
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 59,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 53,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 46,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 41,
+      "property": "None",
+      "negatives": -4
+    }
   ]
 }
