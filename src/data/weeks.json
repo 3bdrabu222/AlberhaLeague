@@ -1198,5 +1198,55 @@
       "property": "None",
       "negatives": -4
     }
+  ],
+  "week25": [
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "The fool",
+      "points": 80,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 59,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "Aemn",
+      "points": 55,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "Marvelous Team",
+      "points": 53,
+      "property": "Free Hit",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "Ahmed Alshre'e",
+      "points": 50,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "Jupa 34",
+      "points": 48,
+      "property": "None",
+      "negatives": 0
+    }
   ]
 }
