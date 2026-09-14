@@ -9,12 +9,12 @@
 ### Data Extracted
 
 #### Players (6 Total)
-1. **Ahmed Mohammed** (Ahmed Alshre'e) - 721 points
-2. **Osama Mohammed** (The fool) - 720 points
-3. **Saad Saleh** (Jupa 34) - 714 points
+1. **Ahmed Mohammed** (سنقر لا تسرق) - 721 points
+2. **Osama Mohammed** (SecretDoor) - 720 points
+3. **Saad Saleh** (1st of His Name) - 714 points
 4. **Ahmed Salah** (The dark passenger) - 708 points
-5. **Ayman Mohammed** (Aemn) - 691 points
-6. **Abdurabu Saleh** (Marvelous Team) - 618 points
+5. **Ayman Mohammed** (AA12) - 691 points
+6. **Abdurabu Saleh** (The Red Team) - 618 points
 
 #### Gameweeks
 - **Total Weeks**: 13 (Gameweek 1 through Gameweek 13)
@@ -49,7 +49,7 @@ node scripts/processExcelData.js
 {
   "id": 1,
   "name": "Ahmed Mohammed",
-  "teamName": "Ahmed Alshre'e",
+  "teamName": "سنقر لا تسرق",
   "totalPoints": 721
 }
 ```
@@ -59,7 +59,7 @@ node scripts/processExcelData.js
 {
   "playerId": 1,
   "playerName": "Ahmed Mohammed",
-  "teamName": "Ahmed Alshre'e",
+  "teamName": "سنقر لا تسرق",
   "points": 68
 }
 ```

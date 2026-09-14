@@ -73,12 +73,12 @@ English:
 ## 🏷️ أسماء الفرق / Team Names:
 
 ```
-أحمد الشرعي ↔ Ahmed Alshre'e
-ذا فول ↔ The fool
-جوبا 34 ↔ Jupa 34
+سنقر لا تسرق ↔ سنقر لا تسرق
+SecretDoor ↔ SecretDoor
+1st of His Name ↔ 1st of His Name
 ذا دارك باسنجر ↔ The dark passenger
-إيمن ↔ Aemn
-مارفلوس تيم ↔ Marvelous Team
+AA12 ↔ AA12
+The Red Team ↔ The Red Team
 ```
 
 ---

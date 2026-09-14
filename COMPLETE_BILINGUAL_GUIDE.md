@@ -5,7 +5,7 @@
 Your website now has **COMPLETE** bilingual support including:
 - ✅ All UI text
 - ✅ Player names (أحمد محمد ↔ Ahmed Mohammed)
-- ✅ Team names (أحمد الشرعي ↔ Ahmed Alshre'e)
+- ✅ Team names (سنقر لا تسرق)
 - ✅ Site name (دوري البرحة ↔ Fantasy Alberha League)
 - ✅ RTL/LTR automatic switching
 - ✅ Arabic as default language
@@ -38,12 +38,12 @@ Abdurabu Saleh    → عبدربه صالح
 
 ### **✅ Team Name Translations:**
 ```
-Ahmed Alshre'e        → أحمد الشرعي
-The fool              → ذا فول
-Jupa 34               → جوبا 34
+سنقر لا تسرق          → سنقر لا تسرق
+SecretDoor            → SecretDoor
+1st of His Name       → 1st of His Name
 The dark passenger    → ذا دارك باسنجر
-Aemn                  → إيمن
-Marvelous Team        → مارفلوس تيم
+AA12                  → AA12
+The Red Team          → The Red Team
 ```
 
 ---
@@ -72,12 +72,12 @@ export default function Page() {
 // Before:
 <h1>League Table</h1>
 <p>Ahmed Mohammed</p>
-<p>Ahmed Alshre'e</p>
+<p>سنقر لا تسرق</p>
 
 // After:
 <h1>{t('rankings.title')}</h1>
 <p>{translatePlayerName('Ahmed Mohammed')}</p>
-<p>{translateTeamName("Ahmed Alshre'e")}</p>
+<p>{translateTeamName("سنقر لا تسرق")}</p>
 ```
 
 ---
@@ -389,8 +389,8 @@ Visit `http://localhost:3000`:
 Fantasy Alberha League
 Home | Rankings | Weekly Results | Stats
 
-Ahmed Mohammed - Ahmed Alshre'e
-Ayman Mohammed - Aemn
+Ahmed Mohammed - سنقر لا تسرق
+Ayman Mohammed - AA12
 ```
 
 ---

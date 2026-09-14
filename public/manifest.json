@@ -1,7 +1,7 @@
 {
-  "name": "Fantasy Alberha League",
-  "short_name": "FPL Alberha",
-  "description": "Fantasy Premier League - Alberha League Edition",
+  "name": "The Final Race",
+  "short_name": "The Final Race",
+  "description": "The Final Race - Fantasy Premier League Edition",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F1419",

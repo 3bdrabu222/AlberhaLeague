@@ -180,7 +180,7 @@ Your website now tracks all FPL chips:
 ### **Manager Profile:**
 ```
 Ahmed Mohammed
-Ahmed Alshre'e
+سنقر لا تسرق
 Manager Profile
 Total Points: 721
 

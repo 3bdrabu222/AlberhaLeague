@@ -34,12 +34,12 @@ npm run add-week
 📅 Adding Gameweek 14
 
 Current Players:
-  1. Ahmed Mohammed (Ahmed Alshre'e) - Current Total: 721
-  2. Osama Mohammed (The fool) - Current Total: 720
-  3. Saad Saleh (Jupa 34) - Current Total: 714
+  1. Ahmed Mohammed (سنقر لا تسرق) - Current Total: 721
+  2. Osama Mohammed (SecretDoor) - Current Total: 720
+  3. Saad Saleh (1st of His Name) - Current Total: 714
   4. Ahmed Salah (The dark passenger) - Current Total: 708
-  5. Ayman Mohammed (Aemn) - Current Total: 691
-  6. Abdurabu Saleh (Marvelous Team) - Current Total: 618
+  5. Ayman Mohammed (AA12) - Current Total: 691
+  6. Abdurabu Saleh (The Red Team) - Current Total: 618
 
 Enter points for Ahmed Mohammed: 75
 Enter points for Osama Mohammed: 68

@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 const cairo = Cairo({ subsets: ['arabic', 'latin'] });
 
 export const metadata: Metadata = {
-  title: 'Fantasy Alberha League',
+  title: 'The Final Race',
   description: 'Fantasy football league tracking weekly performances and season achievements',
   viewport: {
     width: 'device-width',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'FPL Alberha',
+    title: 'The Final Race',
   },
 };
 

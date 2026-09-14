@@ -102,8 +102,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Home Page
     'home.fpl': 'الدوري الإنجليزي الممتاز',
-    'home.league': 'دوري البرحة الممتاز',
-    'home.season': 'موسم 2025/26',
+    'home.league': 'The Final Race',
+    'home.season': 'موسم 2026/27',
     'home.currentGW': 'الجولة الحالية',
     'home.managers': 'المدراء',
     'home.gwOverview': '⚽ نظرة عامة على الجولة',
@@ -136,7 +136,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Rankings Page
     'rankings.title': '🏆 جدول الدوري',
-    'rankings.subtitle': 'الترتيب العام - موسم 2025/26',
+    'rankings.subtitle': 'الترتيب العام - موسم 2026/27',
     'rankings.search': 'البحث عن المدراء...',
     'rankings.rank': 'المركز',
     'rankings.manager': 'المدير',
@@ -276,7 +276,7 @@ const translations: Record<Language, Record<string, string>> = {
     'admin.submitting': 'جاري الإرسال...',
     
     // Footer
-    'footer.about': 'دوري البرحة الممتاز',
+    'footer.about': 'The Final Race',
     'footer.description': 'دوري كرة قدم ممتاز تنافسي يتتبع الأداء الأسبوعي والإنجازات الموسمية.',
     'footer.quickLinks': 'روابط سريعة',
     'footer.home': 'الرئيسية',
@@ -284,7 +284,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.weekly': 'النتائج الأسبوعية',
     'footer.stats': 'الإحصائيات',
     'footer.seasonInfo': 'معلومات الموسم',
-    'footer.currentSeason': 'الموسم الحالي: 2025/26',
+    'footer.currentSeason': 'الموسم الحالي: 2026/27',
     'footer.totalWeeks': 'مجموع الأسابيع',
     'footer.activePlayers': 'اللاعبون النشطون',
     'footer.rights': 'جميع الحقوق محفوظة',
@@ -341,18 +341,22 @@ const translations: Record<Language, Record<string, string>> = {
     'player.name.ahmed-salah': 'أحمد صلاح',
     'player.name.saad-saleh': 'سعد صالح',
     'player.name.abdurabu-saleh': 'عبدربه صالح',
+    'player.name.ahmed-mosab': 'احمد مصعب',
+    'player.name.hakim-ebrahim': 'حكيم ابراهيم',
     
     // Team Names
-    'team.name.ahmed-alshree': 'أحمد الشرعي',
-    'team.name.the-fool': 'ذا فول',
-    'team.name.jupa-34': 'جوبا 34',
+    'team.name.سنقر-لا-تسرق': 'سنقر لا تسرق',
+    'team.name.secretdoor': 'SecretDoor',
+    'team.name.1st-of-his-name': '1st of His Name',
     'team.name.the-dark-passenger': 'ذا دارك باسنجر',
-    'team.name.aemn': 'إيمن',
-    'team.name.marvelous-team': 'مارفلوس تيم',
+    'team.name.aa12': 'AA12',
+    'team.name.the-red-team': 'The Red Team',
+    'team.name.leoahmed': 'LeoAhmed',
+    'team.name.ibb-city': 'IBB CITY',
     
     // Site Name
-    'site.name': 'دوري البرحة',
-    'site.fullName': 'دوري البرحة الممتاز',
+    'site.name': 'The Final Race',
+    'site.fullName': 'The Final Race',
   },
   en: {
     // Header
@@ -364,8 +368,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Home Page
     'home.fpl': 'FANTASY PREMIER LEAGUE',
-    'home.league': 'Alberha League',
-    'home.season': 'Season 2025/26',
+    'home.league': 'The Final Race',
+    'home.season': 'Season 2026/27',
     'home.currentGW': 'Current Gameweek',
     'home.managers': 'Managers',
     'home.gwOverview': '⚽ Gameweek Overview',
@@ -398,7 +402,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Rankings Page
     'rankings.title': '🏆 League Table',
-    'rankings.subtitle': 'Overall standings - Season 2025/26',
+    'rankings.subtitle': 'Overall standings - Season 2026/27',
     'rankings.search': 'Search managers...',
     'rankings.rank': 'Rank',
     'rankings.manager': 'Manager',
@@ -538,7 +542,7 @@ const translations: Record<Language, Record<string, string>> = {
     'admin.submitting': 'Submitting...',
     
     // Footer
-    'footer.about': 'Fantasy Alberha League',
+    'footer.about': 'The Final Race',
     'footer.description': 'A competitive fantasy football league tracking weekly performances and season-long achievements.',
     'footer.quickLinks': 'Quick Links',
     'footer.home': 'Home',
@@ -546,7 +550,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.weekly': 'Weekly Results',
     'footer.stats': 'Statistics',
     'footer.seasonInfo': 'Season Info',
-    'footer.currentSeason': 'Current Season: 2025/26',
+    'footer.currentSeason': 'Current Season: 2026/27',
     'footer.totalWeeks': 'Total Weeks',
     'footer.activePlayers': 'Active Players',
     'footer.rights': 'All rights reserved',
@@ -603,17 +607,21 @@ const translations: Record<Language, Record<string, string>> = {
     'player.name.ahmed-salah': 'Ahmed Salah',
     'player.name.saad-saleh': 'Saad Saleh',
     'player.name.abdurabu-saleh': 'Abdurabu Saleh',
+    'player.name.ahmed-mosab': 'Ahmed Mosab',
+    'player.name.hakim-ebrahim': 'Hakim Ebrahim',
     
     // Team Names (English)
-    'team.name.ahmed-alshree': "Ahmed Alshre'e",
-    'team.name.the-fool': 'The fool',
-    'team.name.jupa-34': 'Jupa 34',
+    'team.name.سنقر-لا-تسرق': 'سنقر لا تسرق',
+    'team.name.secretdoor': 'SecretDoor',
+    'team.name.1st-of-his-name': '1st of His Name',
     'team.name.the-dark-passenger': 'The dark passenger',
-    'team.name.aemn': 'Aemn',
-    'team.name.marvelous-team': 'Marvelous Team',
+    'team.name.aa12': 'AA12',
+    'team.name.the-red-team': 'The Red Team',
+    'team.name.leoahmed': 'LeoAhmed',
+    'team.name.ibb-city': 'IBB CITY',
     
     // Site Name
-    'site.name': 'Alberha League',
-    'site.fullName': 'Fantasy Alberha League',
+    'site.name': 'The Final Race',
+    'site.fullName': 'The Final Race',
   },
 };

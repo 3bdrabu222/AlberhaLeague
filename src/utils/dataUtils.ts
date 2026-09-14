@@ -54,14 +54,16 @@ export const getPlayerStats = (playerId: number): PlayerStats | null => {
     }
   }
 
-  const averageScore = weeklyScores.reduce((a, b) => a + b, 0) / weeklyScores.length;
-  const highestWeek = Math.max(...weeklyScores);
-  const lowestWeek = Math.min(...weeklyScores);
+  const averageScore = weeklyScores.length > 0
+    ? weeklyScores.reduce((a, b) => a + b, 0) / weeklyScores.length
+    : 0;
+  const highestWeek = weeklyScores.length > 0 ? Math.max(...weeklyScores) : 0;
+  const lowestWeek = weeklyScores.length > 0 ? Math.min(...weeklyScores) : 0;
   
   // Calculate consistency (lower standard deviation = more consistent)
   const variance = weeklyScores.reduce((sum, score) => {
     return sum + Math.pow(score - averageScore, 2);
-  }, 0) / weeklyScores.length;
+  }, 0) / (weeklyScores.length || 1);
   const consistency = Math.sqrt(variance);
 
   return {
