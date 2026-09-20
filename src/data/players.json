@@ -4,49 +4,49 @@
       "id": 6,
       "name": "Abdurabu Saleh",
       "teamName": "The Red Team",
-      "totalPoints": 314
+      "totalPoints": 367
     },
     {
       "id": 1,
       "name": "Ahmed Mohammed",
       "teamName": "سنقر لا تسرق",
-      "totalPoints": 305
-    },
-    {
-      "id": 4,
-      "name": "Ahmed Salah",
-      "teamName": "The dark passenger",
-      "totalPoints": 296
+      "totalPoints": 357
     },
     {
       "id": 5,
       "name": "Ayman Mohammed",
       "teamName": "AA12",
-      "totalPoints": 287
+      "totalPoints": 352
+    },
+    {
+      "id": 4,
+      "name": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "totalPoints": 332
     },
     {
       "id": 3,
       "name": "Saad Saleh",
       "teamName": "1st of His Name",
-      "totalPoints": 279
-    },
-    {
-      "id": 8,
-      "name": "Hakim Ebrahim",
-      "teamName": "IBB CITY",
-      "totalPoints": 251
+      "totalPoints": 331
     },
     {
       "id": 2,
       "name": "Osama Mohammed",
       "teamName": "SecretDoor",
-      "totalPoints": 247
+      "totalPoints": 307
+    },
+    {
+      "id": 8,
+      "name": "Hakim Ebrahim",
+      "teamName": "IBB CITY",
+      "totalPoints": 296
     },
     {
       "id": 7,
       "name": "Ahmed Mosab",
       "teamName": "LeoAhmed",
-      "totalPoints": 216
+      "totalPoints": 271
     }
   ]
 }

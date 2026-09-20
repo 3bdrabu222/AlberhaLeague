@@ -246,5 +246,71 @@
       "property": "None",
       "negatives": -4
     }
+  ],
+  "week5": [
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "AA12",
+      "points": 65,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "SecretDoor",
+      "points": 60,
+      "property": "Wildcard",
+      "negatives": 0
+    },
+    {
+      "playerId": 7,
+      "playerName": "Ahmed Mosab",
+      "teamName": "LeoAhmed",
+      "points": 55,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "The Red Team",
+      "points": 53,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "سنقر لا تسرق",
+      "points": 52,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "1st of His Name",
+      "points": 52,
+      "property": "Wildcard",
+      "negatives": 0
+    },
+    {
+      "playerId": 8,
+      "playerName": "Hakim Ebrahim",
+      "teamName": "IBB CITY",
+      "points": 45,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 36,
+      "property": "None",
+      "negatives": 0
+    }
   ]
 }
