@@ -273,18 +273,18 @@
       "negatives": 0
     },
     {
-      "playerId": 6,
-      "playerName": "Abdurabu Saleh",
-      "teamName": "The Red Team",
-      "points": 53,
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "سنقر لا تسرق",
+      "points": 54,
       "property": "None",
       "negatives": 0
     },
     {
-      "playerId": 1,
-      "playerName": "Ahmed Mohammed",
-      "teamName": "سنقر لا تسرق",
-      "points": 52,
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "The Red Team",
+      "points": 53,
       "property": "None",
       "negatives": 0
     },
@@ -300,7 +300,7 @@
       "playerId": 8,
       "playerName": "Hakim Ebrahim",
       "teamName": "IBB CITY",
-      "points": 45,
+      "points": 46,
       "property": "None",
       "negatives": 0
     },
@@ -309,6 +309,72 @@
       "playerName": "Ahmed Salah",
       "teamName": "The dark passenger",
       "points": 36,
+      "property": "None",
+      "negatives": 0
+    }
+  ],
+  "week6": [
+    {
+      "playerId": 5,
+      "playerName": "Ayman Mohammed",
+      "teamName": "AA12",
+      "points": 92,
+      "property": "Bench Boost",
+      "negatives": 0
+    },
+    {
+      "playerId": 6,
+      "playerName": "Abdurabu Saleh",
+      "teamName": "The Red Team",
+      "points": 86,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 4,
+      "playerName": "Ahmed Salah",
+      "teamName": "The dark passenger",
+      "points": 76,
+      "property": "Wildcard",
+      "negatives": 0
+    },
+    {
+      "playerId": 2,
+      "playerName": "Osama Mohammed",
+      "teamName": "SecretDoor",
+      "points": 72,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 7,
+      "playerName": "Ahmed Mosab",
+      "teamName": "LeoAhmed",
+      "points": 70,
+      "property": "None",
+      "negatives": -8
+    },
+    {
+      "playerId": 8,
+      "playerName": "Hakim Ebrahim",
+      "teamName": "IBB CITY",
+      "points": 54,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 3,
+      "playerName": "Saad Saleh",
+      "teamName": "1st of His Name",
+      "points": 53,
+      "property": "None",
+      "negatives": 0
+    },
+    {
+      "playerId": 1,
+      "playerName": "Ahmed Mohammed",
+      "teamName": "سنقر لا تسرق",
+      "points": 44,
       "property": "None",
       "negatives": 0
     }
